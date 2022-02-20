@@ -1,9 +1,9 @@
 import React from 'react';
 import {View, Button, Text} from 'react-native';
-import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-const Tab = createMaterialTopTabNavigator();
+const Tab = createMaterialBottomTabNavigator();
 
 function HomeScreen({navigation}) {
   return (
@@ -35,11 +35,8 @@ function MainScreen() {
   return (
     <Tab.Navigator
       initialRouteName="Home"
-      screenOptions={{
-        tabBarIndicatorStyle: {
-          backgroundColor: '#009688',
-        },
-        tabBarActiveTintColor: '#009688',
+      tabBarOptions={{
+        showIcon: true,
       }}>
       <Tab.Screen
         name="Home"
@@ -47,6 +44,8 @@ function MainScreen() {
         options={{
           tabBarLabel: '홈',
           tabBarIcon: ({color}) => <Icon name="home" color={color} size={24} />,
+          tabBarColor: 'black',
+          tabBarBadge: 'new',
         }}
       />
       <Tab.Screen
@@ -57,6 +56,7 @@ function MainScreen() {
           tabBarIcon: ({color}) => (
             <Icon name="search" color={color} size={24} />
           ),
+          tabBarColor: 'gray',
         }}
       />
       <Tab.Screen
@@ -67,6 +67,8 @@ function MainScreen() {
           tabBarIcon: ({color}) => (
             <Icon name="notifications" color={color} size={24} />
           ),
+          tabBarColor: 'green',
+          tabBarBadge: 30,
         }}
       />
       <Tab.Screen
@@ -77,6 +79,8 @@ function MainScreen() {
           tabBarIcon: ({color}) => (
             <Icon name="message" color={color} size={24} />
           ),
+          tabBarColor: 'blue',
+          tabBarBadge: true,
         }}
       />
     </Tab.Navigator>
